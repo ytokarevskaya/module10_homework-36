@@ -15,5 +15,7 @@ let nameArr = myMap.keys();
 
 for(let k of nameArr) {
 let value = myMap.get(k);
-console.log('Ключ ' + k + ', значение ' + value);
+console.log(`Ключ ${k}, значение ${value}`);
 }
+
+// Почти правильно, только по заданию нужно было использоать шаблонные строки. Выше исправила

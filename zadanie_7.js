@@ -7,7 +7,7 @@
 // знаки, null и так далее.
 
 
-let arr = ['a', 1, 3, null, 5, 2, 4, [], 6, 0, 0];
+let arr = ['a', 1, 3, null, 5, 2, 4, [], 6, 0, 0, NaN];
 let evenCount = 0;
 let oddCount = 0;
 let zeroCount = 0;
@@ -25,20 +25,22 @@ return val % 2 != 0;
 }
 
 for (let i=0; i<arr.length; i++) {
-let currElem = arr[i];
-if (typeof currElem != 'number') {
-continue;
-}
+    let currElem = arr[i];
+    if (typeof currElem != 'number' || isNaN(currElem)) {
+    continue;
+    }
 
-if (isZero (currElem)) {
-zeroCount++;
-} else if (isEvenNumber(currElem)) { // четный
-evenCount++;
-} else if (isOddEvenNumber(currElem)) { // нечетный
-oddCount++;
-}
+    if (isZero (currElem)) {
+    zeroCount++;
+    } else if (isEvenNumber(currElem)) { // четный
+    evenCount++;
+    } else if (isOddEvenNumber(currElem)) { // нечетный
+    oddCount++;
+    }
 }
 
 console.log('zeroCount: ' + zeroCount);
 console.log('evenCount: ' + evenCount);
 console.log('oddCount: ' + oddCount);
+
+// Почти правильно, но не учтено значение NaN. Оно тоже имеет тип number, поэтому пройдет проверку на typeof, но при этом NaN не является числом, поэтому его нельзя учитывать при подсчете четных\нечетных и нулей. Добавила выше проверку на NaN.

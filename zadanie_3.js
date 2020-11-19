@@ -3,11 +3,10 @@
 // Дана строка. Необходимо вывести в консоль перевёрнутый вариант. Например, "Hello" -> "olleH".
 
 function reverseString(str) {
-    var splitString = str.split(""); 
-    var reverseArray = splitString.reverse(); 
-    var joinArray = reverseArray.join(""); 
-    return joinArray; 
+    let result = str.split("").reverse().join(""); 
+    return result; 
 }
  
 console.log(reverseString("hello"));
 
+// Всё верно :) показала вам выше чуть более короткую запись, без использования доп. переменных. Также небольшое замечание: старайтесь не использовать ключевое слово var для объявления переменных, это устаревший синтаксис. Лучше пользоваться более современными операторами: let или const
